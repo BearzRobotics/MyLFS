@@ -15,7 +15,7 @@ export INSTALL_MOUNT=$FULLPATH/mnt/install
 export LFS_TGT=$(uname -m)-lfs-linux-gnu
 export LFS_FS=ext4
 export LFS_IMG=$FULLPATH/lfs.img
-export LFS_IMG_SIZE=$((10*1024*1024*1024)) # 10 GiB
+export LFS_IMG_SIZE=$((80*1024*1024*1024)) # 60 GiB
 export TESTLOG_DIR=$FULLPATH/testlogs
 export LFSROOTLABEL=LFSROOT
 export LFSEFILABEL=LFSEFI
@@ -24,9 +24,10 @@ export LFSFSTYPE=ext4
 # configure these like `MAKEFLAGS=-j1 RUN_TESTS=true ./mylfs.sh --build-all`
 export MAKEFLAGS=${MAKEFLAGS:--j8}
 export RUN_TESTS=${RUN_TESTS:-false}
-export ROOT_PASSWD=${ROOT_PASSWD:-password}
+export ROOT_PASSWD=x
 export LFSHOSTNAME=${LFSHOSTNAME:-lfs}
 
+# For creating a pure MS-DOS boot
 export FDISK_INSTR="
 o       # create DOS partition table
 n       # new partition
@@ -38,6 +39,39 @@ y       # confirm overwrite (noop if not prompted)
 w       # write to device and quit
 "
 
+# For creating a mix DOS/UEFI boot system
+export EFI_FDISK_INSTR="
+g       # create GPT partition table
+n       # new partition (BIOS boot)
+1       # partition number
+        # default start
++2M     # 2MB for BIOS boot
+t       # change type
+1       # partition 1
+4       # type 4 = BIOS boot (EF02)
+n       # new partition (EFI system)
+2
+        # default start
++500M
+t
+2
+1       # type 1 = EFI System (EF00)
+n       # new partition (swap)
+3
+        # default start
++4G
+t
+3
+19      # type 19 = Linux swap
+n       # new partition (LFS root)
+4
+        # default start
+        # default end (use rest of disk)
+w       # write table and exit
+"
+
+# KEYS deterime how to build. If you want an EFI setup change the last option
+# from FDISK_INSTR to EFI_FDISK_INSTR
 KEYS="MAKEFLAGS PACKAGE_LIST PACKAGE_DIR LOG_DIR KEEP_LOGS LFS LFS_TGT"\
 " LFS_FS LFS_IMG LFS_IMG_SIZE ROOT_PASSWD RUN_TESTS TESTLOG_DIR LFSHOSTNAME"\
 " LFSROOTLABEL LFSEFILABEL LFSFSTYPE KERNELVERS FDISK_INSTR"
@@ -50,4 +84,5 @@ do
         exit -1
     fi
 done
+
 

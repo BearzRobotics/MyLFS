@@ -253,7 +253,7 @@ function init_image {
     mkdir -p $LFS/{dev,proc,sys,run}
 
     # LFS 12.2 Section 7.5
-    mkdir -p $LFS/etc/{opt,sysconfig}
+    mkdir -p $LFS/etc/{opt,sysconfig,skel,profile.d}
     mkdir -p $LFS/lib/firmware
     mkdir -p $LFS/media/{floppy,cdrom}
     mkdir -p $LFS/usr/{,local/}{include,src}
@@ -264,6 +264,8 @@ function init_image {
     mkdir -p $LFS/usr/{,local/}share/man/man{1..8}
     mkdir -p $LFS/var/{cache,local,log,mail,opt,spool}
     mkdir -p $LFS/var/lib/{color,misc,locate}
+    mkdir -p $LFS/root
+    mkdir -p $LFS/mnt/{usb,lfs,cdrom,dvd}
     ln -sf /run $LFS/var/run
     ln -sf /run/lock $LFS/var/lock
     install -d -m 0750 $LFS/root
@@ -272,7 +274,7 @@ function init_image {
     # LFS 12.2 Section 7.6
     ln -s /proc/self/mounts $LFS/etc/mtab
     touch $LFS/var/log/{btmp,lastlog,faillog,wtmp}
-    chgrp 13 $LFS/var/log/lastlog # 13 == utmp
+    chgrp 13 $LFS/var/log/lastlog # 13 == utmpsudo rsync -av --exclude='*.img' MyLFS/ /mnt/usb/MyLFS
     chmod 664 $LFS/var/log/lastlog
     chmod 600 $LFS/var/log/btmp
 
@@ -454,7 +456,20 @@ function build_package {
             echo "ERROR: $NAME: package not found"
             return 1
         fi
-        local TARCMD="tar -xf $(basename ${!PKG_NAME}) -C $NAME --strip-components=1"
+        FILE="$(basename "${!PKG_NAME}")"
+
+        case "$FILE" in
+            *.zip)
+                TARCMD="unzip -q \"$FILE\" -d \"$NAME\""
+                ;;
+            *.tar.gz|*.tgz|*.tar.xz|*.tar.bz2|*.tar.zst|*.tar)
+                TARCMD="tar -xf \"$FILE\" -C \"$NAME\" --strip-components=1"
+                ;;
+            *)
+                echo "❌ Unsupported archive format: $FILE"
+                exit 1
+                ;;
+        esac
     fi
 
     local BUILD_INSTR="

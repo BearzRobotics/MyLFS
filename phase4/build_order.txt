@@ -78,5 +78,8 @@ utillinux
 e2fsprogs
 sysklogd
 sysvinit
+zip
+time
+cpio
 lfsbootscripts
 linux

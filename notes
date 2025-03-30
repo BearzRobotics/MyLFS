@@ -1,0 +1,1 @@
+sudo ./mylfs.sh -x ./djok --start-phase 5 --start-package utilmacros

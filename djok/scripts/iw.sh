@@ -1,0 +1,18 @@
+sed -i "/INSTALL.*gz/s/.gz//" Makefile &&
+make
+
+make install
+
+
+cat >> /root/dknotes << "EOF"
+iw -- wireless
+===========================================================
+[*] Networking support --->                                                [NET]
+  [*] Wireless --->                                                   [WIRELESS]
+    <*/M>   cfg80211 - wireless configuration API                     [CFG80211]
+    < /*/M>   Generic IEEE 802.11 Networking Stack (mac80211)         [MAC80211]
+
+Device Drivers --->
+  [*] Network device support --->                                   [NETDEVICES]
+    [*] Wireless LAN --->                                                 [WLAN]
+EOF

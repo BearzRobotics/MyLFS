@@ -1,3 +1,14 @@
+# DJOK
+ [] When building on a LFS system, run the clean_evns.sh
+ [] Test whether changing the export LFS_TGT in config.sh
+    to my own like fenir or halo, etc.
+
+    just so it's different than the host.
+    from:
+    export LFS_TGT=$(uname -m)-lfs-linux-gnu
+    to: 
+    export LFS_TGT=$(uname -m)-fenrir-linux-gnu
+    
 # MyLFS
 It's a giant bash script that builds Linux From Scratch.
 

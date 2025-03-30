@@ -1,0 +1,33 @@
+#DJOK
+
+dosfstoolsFile systems --->
+  DOS/FAT/EXFAT/NT Filesystems --->
+    < /*/M> MSDOS fs support                                          [MSDOS_FS]
+    <*/M>   VFAT (Windows-95) fs support                               [VFAT_FS]
+
+Fuse:
+File systems --->
+  <*/M> FUSE (Filesystem in Userspace) support                         [FUSE_FS]
+
+# if you want test support
+File systems --->
+  <*/M> FUSE (Filesystem in Userspace) support                         [FUSE_FS]
+  <*/M>   Character device in Userspace support                           [CUSE]
+
+
+libUSB:
+Device Drivers --->
+  [*] USB support --->                                             [USB_SUPPORT]
+    <*/M>   Support for Host-side USB                                      [USB]
+    [*]     PCI based USB host interface                               [USB_PCI]
+    # These are most common USB controller drivers for PC-like systems.
+    # For modern systems often [USB_XHCI_HCD] is the only one needed
+    # even if the system has USB 2.0 ports:
+    < /*/M> xHCI HCD (USB 3.0) support                            [USB_XHCI_HCD]
+    < /*/M> EHCI HCD (USB 2.0) support                            [USB_EHCI_HCD]
+    < /*/M> OHCI HCD (USB 1.1) support                            [USB_OHCI_HCD]
+
+pm-utils:
+Power management and ACPI options --->
+  [*] Suspend to RAM and standby                                       [SUSPEND]
+  [*] Hibernation (aka 'suspend to disk')                          [HIBERNATION]
