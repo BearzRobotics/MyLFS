@@ -26,6 +26,7 @@ libuv
 libarchive
 rsync
 cmake
+ecmake
 libxml
 which
 llvm
@@ -129,6 +130,7 @@ openjpeg
 libjpeg
 libtiff
 docbookxml
+docbookxml5
 docbookxsl
 xmlto
 links
@@ -181,6 +183,7 @@ xcbutilskeysms
 xcbutilsrenderutil
 xcbutilswm
 xcbutilscursor
+xcbutilserrors
 cairo
 libatomicops
 libdrm
@@ -202,6 +205,12 @@ mesa
 xbitmaps
 libtirpc
 libnsl
+# added for linux PAM support
+libeconf
+rpcsvcproto
+linuxpam
+linuxpamdoc
+shadowpam
 iceauth
 mkfontscale
 sessreg
@@ -274,7 +283,8 @@ libev
 pcre
 i3wm
 # i3status Requires PAM
-#i3status
+i3status
+i3lock
 ncurses5
 gpm
 freebasic
@@ -299,15 +309,50 @@ qt6
 sox
 # qt6web requires pipewire for building the chromium backend (open source ver of google chrome)
 #qt6web
+boost
+libsigcpp
+sharedmimeinfo
+gdkpixbuf
+librsvg
+docutils
+#gtk3
+#gtk4
+duktape
+docbookxslnons
+libglvnd
+plugixml
+#sdbuscpp
+hyprlang
+hyprutils
+libseatd
+libdisplayinfo
+hyprlandscanner
+hyprlandprotocols
+libspng
+hyprgraphics
+#hypridle
+hyprpicker
+hyprlandqt
+hyprlandqtutils
+hyprsysteminfo
+#hyprlock
+aquamarine
+libzip
+tomlplusplus
+abseilcpp
+re2
+hyprlandcursor
+glaze
+#elogind
+#polkit
+hyprland
 
-# Not building
-#hyprutils
-#aquamarine
-#hyprland
+#hyprlandplugins
 
 # Hypr old x11 version of HyprLand https://github.com/hyprwm/Hypr
 #hyper
 #zig
-# If you want a full desktop support 
-# you will need to build linux PAM. (I3, kde, hyperland)
+cmocka
+#apk
+hexseq
 blfsboot

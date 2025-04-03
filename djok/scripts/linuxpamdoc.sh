@@ -1,0 +1,1 @@
+cp -apvr share/* /usr/share/

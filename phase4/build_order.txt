@@ -82,4 +82,5 @@ zip
 time
 cpio
 lfsbootscripts
+unzip
 linux
