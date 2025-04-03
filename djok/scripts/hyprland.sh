@@ -1,8 +1,6 @@
-meson setup build
-
+meson setup build --prefix=/usr --bindir=/usr/bin --sbindir=/usr/sbin --libdir=/usr/lib --datadir=/usr/share --sysconfdir=/etc
 ninja -C build
-
-sudo ninja -C build install
+ninja -C build install
 
 mkdir -pv /usr/share/wayland-sessions/
 cp -vf /usr/local/share/wayland-sessions/hyprland.desktop /usr/share/wayland-sessions/

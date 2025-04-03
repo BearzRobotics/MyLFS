@@ -13,8 +13,9 @@
 #libxcb-image
 #libxcb-xrm
 
-rm -rf build/
-mkdir -p build && cd build/
+#rm -rf build/
+#mkdir -p build && cd build/
 
-meson setup -Dprefix=/usr
-ninja
+meson setup build --prefix=/usr --bindir=/usr/bin --sbindir=/usr/sbin --libdir=/usr/lib --datadir=/usr/share --sysconfdir=/etc
+ninja -C build
+ninja -C build install

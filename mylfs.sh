@@ -255,19 +255,19 @@ function init_image {
     # LFS 12.2 Section 7.5
     mkdir -p $LFS/etc/{opt,sysconfig,skel,profile.d}
     mkdir -p $LFS/lib/firmware
-    mkdir -p $LFS/media/{floppy,cdrom}
-    mkdir -p $LFS/usr/{,local/}{include,src}
+    mkdir -p $LFS/media/{usb,lfs,cdrom,dvd}
+    mkdir -p $LFS/usr/{include,src}
     mkdir -p $LFS/usr/lib/locale
     mkdir -p $LFS/usr/local/{bin,lib,sbin}
-    mkdir -p $LFS/usr/{,local/}share/{color,dict,doc,info,locale,man}
-    mkdir -p $LFS/usr/{,local/}share/{misc,terminfo,zoneinfo}
-    mkdir -p $LFS/usr/{,local/}share/man/man{1..8}
+    mkdir -p $LFS/usr/share/{color,dict,doc,info,locale,man}
+    mkdir -p $LFS/usr/share/{misc,terminfo,zoneinfo}
+    mkdir -p $LFS/usr/share/man/man{1..8}
     mkdir -p $LFS/var/{cache,local,log,mail,opt,spool}
     mkdir -p $LFS/var/lib/{color,misc,locate}
     mkdir -p $LFS/root
-    mkdir -p $LFS/mnt/{usb,lfs,cdrom,dvd}
     ln -sf /run $LFS/var/run
     ln -sf /run/lock $LFS/var/lock
+    ln -s /usr $LFS/usr/local
     install -d -m 0750 $LFS/root
     install -d -m 1777 $LFS/tmp $LFS/var/tmp
 

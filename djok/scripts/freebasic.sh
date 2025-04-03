@@ -8,9 +8,9 @@ tar -xf FreeBASIC-1.10.1-source.tar.gz
 CFLAGS="-I/usr/lib/ncurses5/include" LDFLAGS="-L/usr/lib/ncurses5/lib"
 
 cd FreeBASIC-1.10.1-source
-make FBC=../bin/fbc PREFIX=/usr
+make FBC=../bin/fbc
 
-make install DESTDIR=/usr
+make install
 
 
 cp -frv examples /root/fbe/

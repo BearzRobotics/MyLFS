@@ -95,3 +95,4 @@ export PATCH_SYSVINIT=https://www.linuxfromscratch.org/patches/lfs/12.2/sysvinit
 export PKG_ZIP=https://downloads.sourceforge.net/infozip/zip30.tar.gz
 export PKG_TIME=https://ftp.gnu.org/gnu/time/time-1.9.tar.gz
 export PKG_CPIO=https://ftp.gnu.org/gnu/cpio/cpio-2.15.tar.bz2
+export PKG_UNZIP=https://downloads.sourceforge.net/infozip/unzip60.tar.gz

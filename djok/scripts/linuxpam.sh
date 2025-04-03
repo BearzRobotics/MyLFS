@@ -1,3 +1,15 @@
+wget https://docbook.org/xml/5.0/docbook-5.0.zip
+unzip docbook-5.0.zip -d docbook-5.0
+
+install -vdm755 /usr/share/xml/docbook/schema/{dtd,rng,sch,xsd}/5.0
+DOCBOOK_DIR=docbook-5.0/docbook-5.0
+
+install -vm644 $DOCBOOK_DIR/dtd/* /usr/share/xml/docbook/schema/dtd/5.0
+install -vm644 $DOCBOOK_DIR/rng/* /usr/share/xml/docbook/schema/rng/5.0
+install -vm644 $DOCBOOK_DIR/sch/* /usr/share/xml/docbook/schema/sch/5.0
+install -vm644 $DOCBOOK_DIR/xsd/* /usr/share/xml/docbook/schema/xsd/5.0
+
+
 mkdir build &&
 cd    build &&
 
@@ -15,7 +27,7 @@ if [ -e /etc/pam.d/other ]; then
 fi
 
 
-ninja install &&
+ninja install
 chmod -v 4755 /usr/sbin/unix_chkpwd
 
 rm -rf /usr/lib/systemd

@@ -9,6 +9,7 @@
 # Bonus is the keep qemu and it's deps. That way the resulting image will 
 # have everything needed to build a new system.
 
+tree
 libunistring
 libidn2
 libpsl
@@ -99,7 +100,6 @@ usbutils
 pciutils
 nushell
 cargoc
-#freebasic # Needs work -- Possibley x11, mesa, etc
 zsh
 fishshell
 #neovim packages
@@ -120,11 +120,9 @@ iw
 wpasupplicant
 wirelesstools
 #end wifi
-dash
 nettle
 gnutls
 cups
-zip
 7zip
 openjpeg
 libjpeg
@@ -322,8 +320,8 @@ docbookxslnons
 libglvnd
 plugixml
 #sdbuscpp
-hyprlang
 hyprutils
+hyprlang
 libseatd
 libdisplayinfo
 hyprlandscanner
@@ -346,7 +344,6 @@ glaze
 #elogind
 #polkit
 hyprland
-
 #hyprlandplugins
 
 # Hypr old x11 version of HyprLand https://github.com/hyprwm/Hypr
@@ -354,5 +351,7 @@ hyprland
 #zig
 cmocka
 #apk
+#mylfs
+dash
 hexseq
 blfsboot
