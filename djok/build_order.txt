@@ -9,7 +9,7 @@
 # Bonus is the keep qemu and it's deps. That way the resulting image will 
 # have everything needed to build a new system.
 
-tree
+
 libunistring
 libidn2
 libpsl
@@ -29,6 +29,7 @@ rsync
 cmake
 ecmake
 libxml
+tree
 which
 llvm
 rust
@@ -352,6 +353,7 @@ hyprland
 cmocka
 #apk
 #mylfs
+libarchive
 dash
 hexseq
 blfsboot

@@ -12,6 +12,7 @@ m4
 bc
 flex
 tcl
+
 expect
 dejagnu
 pkgconfig
@@ -48,6 +49,7 @@ kmod
 elfutils
 libffi
 python
+
 flitcore
 wheel
 setuptools
@@ -59,8 +61,8 @@ diffutils
 gawk
 findutils
 groff
-grub
 gzip
+grub
 iproute2
 kbd
 libpipeline
@@ -72,6 +74,8 @@ vim
 markupsafe
 jinja
 udevfromsysd
+
+
 mandb
 procps
 utillinux
@@ -81,6 +85,8 @@ sysvinit
 zip
 time
 cpio
+
+
 lfsbootscripts
 #unzip
 linux

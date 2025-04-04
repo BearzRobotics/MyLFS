@@ -9,7 +9,8 @@
   --without-debug \
   --without-cxx-binding \
   --without-manpages \
-  --with-termlib
+  --with-termlib \
+  --with-versioned-syms
 
 make
 make install

@@ -1,6 +1,7 @@
 source /etc/profile
 
-zig build install -p /usr
+zig build
+mv zig-out/bin/hexseq /usr/bin/hexseq
 
 ### Boot files
 
@@ -22,7 +23,10 @@ cat > /etc/rc.d/init.d/hexseq << "EOF"
 case "$1" in
     start)
         echo "Running hexseq log rotation"
-        /usr/bin/hexseq -d --logdir=/var/log
+        /usr/bin/hexseq -d --logdir /var/log
+
+        # I don't know how to get rc.local to work
+        dmesg > /var/log/dmesg
         ;;
     *)
         echo "Usage: $0 start"
@@ -44,3 +48,18 @@ ln -sf ../init.d/hexseq /etc/rc.d/rcS.d/S41hexseq
 
 # start it
 /etc/rc.d/init.d/hexseq start
+
+
+cat >> /root/dknotes << "EOF"
+hexseq
+===================================
+
+This program should auto rotate your logs for you up to .FFF
+
+I don't know how to get rc.local to work so for now I put
+dmesg > /var/log/dmesg
+to run after hexseq so that you get the new systems dmesg. Then on next
+boot it will rename it.
+
+
+EOF 

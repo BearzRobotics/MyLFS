@@ -336,5 +336,5 @@ export PKG_ABSEILCPP=https://github.com/abseil/abseil-cpp/archive/refs/tags/2025
 export PKG_GLAZE=https://github.com/stephenberry/glaze/archive/refs/tags/v5.0.2.tar.gz
 export PKG_XCBUTILSERRORS=https://xorg.freedesktop.org/releases/individual/lib/xcb-util-errors-1.0.1.tar.xz
 export PKG_HEXSEQ=https://github.com/BearzRobotics/hexseq/archive/refs/tags/hexseq-v0.0.7.tar.gz
-export PKG_MYLFS=https://github.com/BearzRobotics/MyLFS/archive/refs/tags/v1.0.0.tar.gz
+export PKG_MYLFS=https://github.com/BearzRobotics/MyLFS/archive/refs/tags/v1.0.1.tar.gz
 export PKG_TREE=https://gitlab.com/OldManProgrammer/unix-tree/-/archive/2.2.1/unix-tree-2.2.1.tar.bz2
