@@ -40,7 +40,7 @@ pathappend () {
 export -f pathremove pathprepend pathappend
 
 # Set the initial path
-export PATH=/usr/bin:/usr/sbin
+export PATH=/usr/bin:/usr/sbin:/musl/bin
 
 # Attempt to provide backward compatibility with LFS earlier than 11
 if [ ! -L /bin ]; then
