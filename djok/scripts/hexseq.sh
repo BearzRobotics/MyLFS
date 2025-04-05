@@ -1,6 +1,6 @@
 source /etc/profile
 
-zig build
+zig build -Dtarget=x86_64-linux-gnu -Dcpu=baseline
 mv zig-out/bin/hexseq /usr/bin/hexseq
 
 ### Boot files
